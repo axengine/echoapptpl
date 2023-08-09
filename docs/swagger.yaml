@@ -1,0 +1,49 @@
+definitions:
+  bean.Resp:
+    properties:
+      resCode:
+        type: integer
+      resDesc:
+        type: string
+      result: {}
+      traceId:
+        type: string
+    type: object
+  bean.UserLoginRo:
+    properties:
+      login:
+        description: 登录名
+        type: string
+      password:
+        description: md5(password)
+        type: string
+    required:
+    - login
+    - password
+    type: object
+info:
+  contact: {}
+paths:
+  /user/login:
+    post:
+      consumes:
+      - application/json
+      description: 用户登录
+      parameters:
+      - description: request param
+        in: body
+        name: Request
+        required: true
+        schema:
+          $ref: '#/definitions/bean.UserLoginRo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/bean.Resp'
+      summary: 用户登录
+      tags:
+      - USER
+swagger: "2.0"

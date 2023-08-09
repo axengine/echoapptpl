@@ -1,0 +1,76 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/user/login": {
+            "post": {
+                "description": "用户登录",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "USER"
+                ],
+                "summary": "用户登录",
+                "parameters": [
+                    {
+                        "description": "request param",
+                        "name": "Request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/bean.UserLoginRo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/bean.Resp"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "bean.Resp": {
+            "type": "object",
+            "properties": {
+                "resCode": {
+                    "type": "integer"
+                },
+                "resDesc": {
+                    "type": "string"
+                },
+                "result": {},
+                "traceId": {
+                    "type": "string"
+                }
+            }
+        },
+        "bean.UserLoginRo": {
+            "type": "object",
+            "required": [
+                "login",
+                "password"
+            ],
+            "properties": {
+                "login": {
+                    "description": "登录名",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "md5(password)",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
