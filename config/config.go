@@ -8,8 +8,7 @@ import (
 
 var Cfg Config
 
-type Config struct {
-}
+type Config map[string]interface{}
 
 func Init() error {
 	// 解析到Config

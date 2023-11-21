@@ -66,7 +66,7 @@ func init() {
 
 	// 设置配置文件名和路径
 	viper.SetConfigName("config")
-	viper.AddConfigPath(".")
+	viper.AddConfigPath("./config")
 
 	// 读取配置文件
 	if err := viper.ReadInConfig(); err != nil {
